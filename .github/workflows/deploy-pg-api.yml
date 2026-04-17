@@ -32,4 +32,4 @@ jobs:
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
 
       - name: docker push
-        run: docker push ${{ secrets.DOCKER_USER }}/RESTAPI-F1-PG:${{ github.sha }}
+        run: docker push ${{ secrets.DOCKER_USER }}/restapi-f1-pg:${{ github.sha }}
