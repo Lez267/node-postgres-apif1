@@ -19,10 +19,11 @@ jobs:
       - run: ls -la
 
       - run: touch .env
-      - run: echo 'DATABASE_URL=${{ secrets.PG_CONN }}' >> .env
+      - run: echo 'DATABASE_URL=${{ secrets.DATABASE_URL }}' >> .env
       - run: cat .env
 
       - run: docker build -t ${{ secrets.DOCKER_USER }}/restapi-f1-pg:${{ github.sha }} .
+
       - run: docker images
 
       - name: docker login
