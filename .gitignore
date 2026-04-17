@@ -1,5 +1,4 @@
 .env
 node_modules
 Dockerfile
-deploy-pg-api.yml
 

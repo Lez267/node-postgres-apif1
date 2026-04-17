@@ -22,7 +22,7 @@ jobs:
       - run: echo 'DATABASE_URL=${{ secrets.PG_CONN }}' >> .env
       - run: cat .env
 
-      - run: docker build -t ${{ secrets.DOCKER_USER }}/RESTAPI-F1-PG:${{ github.sha }} .
+      - run: docker build -t ${{ secrets.DOCKER_USER }}/restapi-f1-pg:${{ github.sha }} .
       - run: docker images
 
       - name: docker login
