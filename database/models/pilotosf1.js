@@ -13,20 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  PilotosF1.init({
-    nombre: DataTypes.STRING,
-    equipos: DataTypes.STRING,
-    numeros: DataTypes.STRING,
-    nacionalidad: DataTypes.STRING,
-    victorias: DataTypes.INTEGER,
-    podios: DataTypes.INTEGER,
-    campeonatos: DataTypes.INTEGER,
-    debut: DataTypes.DATE,
-    puntos_totales: DataTypes.INTEGER
-	  }, {
-    sequelize,
-    modelName: 'PilotosF1',
-    freezeTableName: true
-  });
+PilotosF1.init({
+  nombre: DataTypes.STRING,
+  equipos: DataTypes.STRING,
+  numeros: DataTypes.STRING,
+  nacionalidad: DataTypes.STRING,
+  victorias: DataTypes.INTEGER,
+  podios: DataTypes.INTEGER,
+  campeonatos: DataTypes.INTEGER,
+  debut: DataTypes.DATE,
+  puntos_totales: DataTypes.INTEGER,
+  imagen: DataTypes.STRING   // 👈 AQUÍ ESTÁ LA SOLUCIÓN
+}, {
+  sequelize,
+  modelName: 'PilotosF1',
+  freezeTableName: true
+});
   return PilotosF1;
 };
