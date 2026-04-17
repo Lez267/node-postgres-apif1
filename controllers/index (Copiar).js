@@ -4,20 +4,30 @@ const cloudinary = require('../cloudinary');
 // PILOTOS F1
 const getAllPilotos = async (req, res) => {
   try {
- onst pilotos = await models.PilotosF1.findAll();
-
-return res.status(200).json({ pilotos });
-  } catch (error) {
-    console.log("ERROR REAL GET PILOTOS:", error);
-
-    return res.status(500).json({
-      error: error.message,
-      stack: error.stack
+    const pilotos = await models.PilotosF1.findAll({
+      attributes: [
+        "id",
+        "nombre",
+        "equipos",
+        "numeros",
+        "nacionalidad",
+        "victorias",
+        "podios",
+        "campeonatos",
+        "debut",
+        "puntos_totales",
+        "imagen",
+        "createdAt",
+        "updatedAt"
+      ]
     });
+
+    return res.status(200).json({ pilotos });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
 };
 
-  
 const getPilotoById = async (req, res) => {
   try {
     const piloto = await models.PilotosF1.findByPk(req.params.id);
